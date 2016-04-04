@@ -1,8 +1,153 @@
 {
-    "Schemas":{
-        
+    "Schemas": {
+        "Account": {
+            "Table": "`account`",
+            "DataBase":"s1",
+            "PrimaryKey": "Id",
+            "SpecialKey": "",
+            "Fields": [
+                {
+                    "Name": "Id",
+                    "Alias": "账号主键",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "ID",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "账号ID"
+                },
+                {
+                    "Name": "Account",
+                    "Alias": "账号",
+                    "Domain": null,
+                    "Type": "String",
+                    "DBName": "NAME",
+                    "Searchable": true,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "账号"
+                },
+                {
+                    "Name": "Money",
+                    "Alias": "充值",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "MONEY",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "充值"
+                }
+            ]
+        },
+        "User": {
+            "Table": "`t_user`",
+            "DataBase":"pirate20002",
+            "PrimaryKey": "UId|PId",
+            "SpecialKey": "",
+            "Fields": [
+                {
+                    "Name": "UId",
+                    "Alias": "主角主键",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "UID",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "主角主键"
+                },
+                {
+                    "Name": "PId",
+                    "Alias": "账号主键",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "PID",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "用户ID"
+                },
+                {
+                    "Name": "UserName",
+                    "Alias": "主角",
+                    "Domain": null,
+                    "Type": "String",
+                    "DBName": "UNAME",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "主角"
+                },
+                {
+                    "Name": "VIP",
+                    "Alias": "VIP",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "VIP",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "VIP"
+                },
+                {
+                    "Name": "Belly",
+                    "Alias": "贝利",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "BELLY_NUM",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "贝利"
+                },
+                {
+                    "Name": "Gold",
+                    "Alias": "金币",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "GOLD_NUM",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "金币"
+                },
+                {
+                    "Name": "Prestige",
+                    "Alias": "声望",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "PRESTIGE_NUM",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "声望"
+                },
+                {
+                    "Name": "Experience",
+                    "Alias": "阅历",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "EXPERIENCE_NUM",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "阅历"
+                },
+                {
+                    "Name": "Execution",
+                    "Alias": "行动力",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "CUR_EXECUTION",
+                    "Searchable": false,
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "行动力"
+                }
+            ]
+        }
     },
-    "Domains":{
-        
-    }
+    "Domains": {}
 }
