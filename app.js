@@ -10,6 +10,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var places = require('./routes/places');
 var pAdmin = require('./routes/admin');
+var pStatic = require('./routes/static');
+var pGM = require('./routes/gm');
 
 var app = express();
 
@@ -29,7 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/places', places);
-app.use('/admin/', pAdmin);
+app.use('/admin', pAdmin);
+app.use('/static', pStatic);
+app.use('/gm', pGM);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

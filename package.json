@@ -1,6 +1,6 @@
 {
-  "name": "11_ExpressMultipleRoutes",
-  "version": "0.0.0",
+  "name": "HZW.Admin",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -12,6 +12,7 @@
     "express": "~4.13.1",
     "swig": "*",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "mysql": "*"
   }
 }
