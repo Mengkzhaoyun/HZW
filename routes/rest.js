@@ -98,7 +98,7 @@ router.get('/Tables/:table', function(req, res, next) {
             password: GConn.Password,
             database: pTable.DataBase
         });        
-        pConn.connect();        
+        pConn.connect();      
         pConn.query(sTotalSql, function(err, rows, fields) {
             if (err) {
                 pResult["total"] = 0;

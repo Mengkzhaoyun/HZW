@@ -36,8 +36,6 @@ app.use('/admin', pAdmin);
 app.use('/static', pStatic);
 app.use('/gm', pGM);
 app.use('/rest', pREST);
-app.use('/rest/schemas', pREST);
-app.use('/rest/tables', pREST);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
