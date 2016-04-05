@@ -22,7 +22,7 @@ fs.readFile('required/conn.json', 'utf8', (err, data) => {
 router.get('/Tables/:table', function(req, res, next) {
     var sTable = req.params.table;
     if (GTables && GTables.Schemas && GTables.Schemas[sTable]) {
-        var pTable = GTables.Schemas[sTable];
+        var pTable = GTables.Schemas[sTable.toLowerCase()];
         var sSort = req.query["sort"];
         var sOrder = req.query["order"];
         var sLimit = req.query["limit"];
@@ -152,14 +152,13 @@ function Query_GetDBValues(pTable, pRow) {
 
 /* Query Schema */
 router.get('/Schemas/:table', function(req, res, next) {
-    var sTable = req.params.table;
+    var sTable = req.params.table.toLowerCase();
     if (GTables && GTables.Schemas && GTables.Schemas[sTable]) {
         var pTableSchema = GTables.Schemas[sTable];
         res.json(pTableSchema);
         return;
     }
-    res.writeHead(500, { "Content-Type": "text/plain" });
-    res.json({ "STATUS": "404 NOT FOUND" });
+    res.status(500).json({ "STATUS": "404 NOT FOUND" });
 });
 
 module.exports = router;

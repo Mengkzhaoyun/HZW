@@ -1,14 +1,14 @@
 {
     "Schemas": {
-        "Account": {
+        "account": {
             "Table": "`account`",
-            "DataBase":"s1",
+            "DataBase": "s1",
             "PrimaryKey": "Id",
             "SpecialKey": "",
             "Fields": [
                 {
                     "Name": "Id",
-                    "Alias": "账号主键",
+                    "Alias": "编号",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "ID",
@@ -41,9 +41,9 @@
                 }
             ]
         },
-        "User": {
+        "user": {
             "Table": "`t_user`",
-            "DataBase":"pirate20002",
+            "DataBase": "pirate20002",
             "PrimaryKey": "UId|PId",
             "SpecialKey": "",
             "Fields": [
