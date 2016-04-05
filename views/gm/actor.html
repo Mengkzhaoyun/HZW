@@ -62,48 +62,14 @@
                     <!-- form start -->
                     <form class="form-horizontal">
                         <div class="box-body">
-                            <div class="form-group">
-                                <label for="input_UName" class="col-sm-2 control-label">角色名</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input_UName" placeholder="真の刘备">
-                                </div>
-                            </div>    
-                            <div class="form-group">
-                                <label for="input_VIP" class="col-sm-2 control-label">VIP</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input_VIP" placeholder="">
-                                </div>
-                            </div>       
-                            <div class="form-group">
-                                <label for="input_Belly" class="col-sm-2 control-label">贝利</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input_Belly" placeholder="">
-                                </div>
-                            </div>       
-                            <div class="form-group">
-                                <label for="input_Gold" class="col-sm-2 control-label">金币</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input_Gold" placeholder="">
-                                </div>
-                            </div>     
-                            <div class="form-group">
-                                <label for="input_Prestige" class="col-sm-2 control-label">声望</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input_Prestige" placeholder="">
-                                </div>
-                            </div>   
-                            <div class="form-group">
-                                <label for="input_Experience" class="col-sm-2 control-label">阅历</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input_Experience" placeholder="">
-                                </div>
-                            </div>   
-                            <div class="form-group">
-                                <label for="input_Execution" class="col-sm-2 control-label">行动力</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input_Execution" placeholder="">
-                                </div>
-                            </div>                                                                                                      
+                            {% for pField in Schemas_user.FormFields %} 
+                            {% if loop %}<div class="form-group">{% endif %}
+                            <label for="input_{{ pField.Name }}" class="col-sm-2 control-label">{{ pField.Alias }}</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="input_{{ pField.Name }}" placeholder="{{ pField.Placeholder }}">
+                            </div>
+                            {% if loop %}</div>{% endif %} 
+                            {% endfor %}                                                                                                                             
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
@@ -268,4 +234,5 @@
 {% block script %}
 <!-- AdminLTE App -->
 <script src="../plugins/AdminLTE-2.3.0-dist/js/app.min.js"></script>
+<script type="text/javascript" src="../js/gm/actor.js"></script>
 {% endblock %}

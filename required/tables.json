@@ -3,148 +3,171 @@
         "account": {
             "Table": "`account`",
             "DataBase": "s1",
-            "PrimaryKey": "Id",
+            "PrimaryKey": "id",
             "SpecialKey": "",
-            "Fields": [
-                {
-                    "Name": "Id",
+            "Fields": {
+                "id": {
                     "Alias": "编号",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "ID",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "账号ID"
                 },
-                {
-                    "Name": "Account",
+                "account": {
                     "Alias": "账号",
                     "Domain": null,
                     "Type": "String",
                     "DBName": "NAME",
-                    "Searchable": true,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "账号"
                 },
-                {
-                    "Name": "Money",
+                "money": {
                     "Alias": "充值",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "MONEY",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "充值"
+                }
+            },
+            "BootstrapTableFields": [
+                {
+                    "Name": "id",
+                    "Orderable": true,
+                    "Sortable": false
+                },
+                {
+                    "Name": "account",
+                    "Orderable": true,
+                    "Sortable": true
+                },
+                {
+                    "Name": "money",
+                    "Orderable": true,
+                    "Sortable": false
+                }
+            ],
+            "FormFields": [
+                {
+                    "Name": "money"
                 }
             ]
         },
         "user": {
             "Table": "`t_user`",
             "DataBase": "pirate20002",
-            "PrimaryKey": "UId|PId",
+            "PrimaryKey": "uid|pid",
             "SpecialKey": "",
-            "Fields": [
-                {
-                    "Name": "UId",
+            "Fields": {
+                "uid": {
                     "Alias": "主角主键",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "UID",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "主角主键"
                 },
-                {
-                    "Name": "PId",
+                "pid": {
                     "Alias": "账号主键",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "PID",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "用户ID"
                 },
-                {
-                    "Name": "UserName",
+                "username": {
                     "Alias": "主角",
                     "Domain": null,
                     "Type": "String",
                     "DBName": "UNAME",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "主角"
                 },
-                {
-                    "Name": "VIP",
+                "vip": {
                     "Alias": "VIP",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "VIP",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "VIP"
                 },
-                {
-                    "Name": "Belly",
+                "belly": {
                     "Alias": "贝利",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "BELLY_NUM",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "贝利"
                 },
-                {
-                    "Name": "Gold",
+                "gold": {
                     "Alias": "金币",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "GOLD_NUM",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "金币"
                 },
-                {
-                    "Name": "Prestige",
+                "prestige": {
                     "Alias": "声望",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "PRESTIGE_NUM",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "声望"
                 },
-                {
-                    "Name": "Experience",
+                "experience": {
                     "Alias": "阅历",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "EXPERIENCE_NUM",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "阅历"
                 },
-                {
-                    "Name": "Execution",
+                "execution": {
                     "Alias": "行动力",
                     "Domain": null,
                     "Type": "Long",
                     "DBName": "CUR_EXECUTION",
-                    "Searchable": false,
                     "Nullable": false,
                     "Default": null,
                     "Comments": "行动力"
+                }
+            },
+            "FormFields": [
+                {
+                    "Name": "username",
+                    "IsReadOnly": true,
+                    "Placeholder":"真の赵云"
+                },
+                {
+                    "Name": "vip"
+                },
+                {
+                    "Name": "belly"
+                },
+                {
+                    "Name": "gold"
+                },
+                {
+                    "Name": "prestige"
+                },
+                {
+                    "Name": "experience"
+                },
+                {
+                    "Name": "execution"
                 }
             ]
         }

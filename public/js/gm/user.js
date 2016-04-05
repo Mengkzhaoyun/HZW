@@ -7,22 +7,22 @@ $(function() {
         success: function(data) {
             var pTable = data;
             var pColumns = [];
-            for (var i = 0; i < pTable.Fields.length; i++) {
-                var pField = pTable.Fields[i];
+            for (var i = 0; i < pTable.BootstrapTableFields.length; i++) {
+                var pField = pTable.BootstrapTableFields[i];
                 var pColumn = {
                     "title": pField.Alias,
                     "field": pField.Name,
                     "align": 'center',
                     "valign": 'middle',
-                    "sortable": true,
+                    "sortable": pField.Sortable,
                 };
-                if (pColumn.field == "Account") {
+                if (pColumn.field == "account") {
                     pColumn.formatter = table_formatter_account;
                 }
                 pColumns.push(pColumn);
             }
             $table.bootstrapTable({
-                sortName: 'Id',
+                sortName: 'id',
                 sortOrder: 'asc',
                 columns: pColumns
             });
@@ -32,8 +32,8 @@ $(function() {
 
 function table_formatter_account(value, row, index) {
     return [
-        '<a class="link" title="" href="' + 'actor.html?Id=' + row.Id + '">',
-        row.Account,
+        '<a class="link" title="" href="' + 'actor.html?Id=' + row.id + '">',
+        row.account,
         '</a>'
     ].join('');
 }
