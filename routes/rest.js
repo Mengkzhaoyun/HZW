@@ -91,31 +91,40 @@ router.get('/Tables/:table', function(req, res, next) {
             sSql = stringHelper("{0} limit {1}", sSql, pLimitArray.join(","));
         }
 
+        var pResult = {};
         var pConn = mysql.createConnection({
             host: GConn.Server,
             user: GConn.User,
             password: GConn.Password,
             database: pTable.DataBase
-        });
-
-        pConn.connect();
-        var pResult = {};
+        });        
+        pConn.connect();        
         pConn.query(sTotalSql, function(err, rows, fields) {
-            if (err) throw err;
-            pResult["total"] = rows[0]["count(*)"];
-        });
-
-        pConn.query(sSql, function(err, rows, fields) {
-            if (err) throw err;
-            var pResult_Rows = [];
-            for (var i = 0; i < rows.length; i++) {
-                var pRow = rows[i];
-                pResult_Rows.push(Query_GetDBValues(pTable, pRow));
+            if (err) {
+                pResult["total"] = 0;
+                pResult["status"] = "500 Server Internal Error!";
             }
-            pResult["rows"] = pResult_Rows;
-            res.json(pResult);
+            else {
+                pResult["total"] = rows[0]["count(*)"];
+            }
+
         });
-        
+        pConn.query(sSql, function(err, rows, fields) {
+            if (err) {
+                pResult["rows"] = [];
+                pResult["status"] = "500 Server Internal Error!";
+                res.status(500).json(pResult);
+            }
+            else {
+                var pResult_Rows = [];
+                for (var i = 0; i < rows.length; i++) {
+                    var pRow = rows[i];
+                    pResult_Rows.push(Query_GetDBValues(pTable, pRow));
+                }
+                pResult["rows"] = pResult_Rows;
+                res.json(pResult);
+            }
+        });
         pConn.end();
         return;
     }
@@ -149,6 +158,7 @@ router.get('/Schemas/:table', function(req, res, next) {
         res.json(pTableSchema);
         return;
     }
+    res.writeHead(500, { "Content-Type": "text/plain" });
     res.json({ "STATUS": "404 NOT FOUND" });
 });
 
