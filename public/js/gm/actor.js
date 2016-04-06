@@ -23,5 +23,15 @@ hzwApp.controller('userCtrl', function($scope, $http) {
             for (var sProp in pRow) {
                 $scope[sProp] = pRow[sProp];
             }
+            $http.get("../Rest/Tables/astrolabe?filter=uid=" + pRow.uid+" and ast_id=1")
+                .then(function(astrolaberesponse) {
+                    var pRow = astrolaberesponse.data.rows[0];
+                    astrolabescope.level = pRow.level;
+                });
         });
+});
+
+var astrolabescope;
+hzwApp.controller('astrolabeCtrl', function($scope, $http) {
+    astrolabescope = $scope;
 });
