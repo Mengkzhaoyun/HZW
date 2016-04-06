@@ -170,6 +170,46 @@
                     "Name": "execution"
                 }
             ]
+        },
+        "astrolabe":{
+            "Table": "`t_astrolabe_info`",
+            "DataBase": "pirate20002",
+            "PrimaryKey": "uid",
+            "SpecialKey": "",
+            "Fields": {
+                "uid": {
+                    "Alias": "角色ID",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "UID",
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "角色ID"
+                },
+                "id":{
+                    "Alias": "编号",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "AST_ID",
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "ID"
+                },                
+                "level": {
+                    "Alias": "等级",
+                    "Domain": null,
+                    "Type": "Long",
+                    "DBName": "AST_LEV",
+                    "Nullable": false,
+                    "Default": null,
+                    "Comments": "等级"
+                }
+            },
+            "FormFields": [
+                {
+                    "Name": "level"
+                }
+            ]
         }
     },
     "Domains": {}

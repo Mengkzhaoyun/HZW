@@ -4,13 +4,24 @@ GetQueryString = function(name) {
     if (r != null) return unescape(r[2]); return null;
 }
 
-$(function() {
-    var sPID = GetQueryString("Id");
-    $.ajax({
-        type: "GET",
-        url: "../Rest/Tables/User/PId/" + sPID,
-        success: function(data) {
+var sPID = GetQueryString("Id");
+var hzwApp = angular.module('hzwApp', []);
+hzwApp.controller('accountCtrl', function($scope, $http) {
+    $http.get("../Rest/Tables/Account?filter=id=" + sPID)
+        .then(function(response) {
+            var pRow = response.data.rows[0];
+            for (var sProp in pRow) {
+                $scope[sProp] = pRow[sProp];
+            }
+        });
+});
 
-        }
-    });
+hzwApp.controller('userCtrl', function($scope, $http) {
+    $http.get("../Rest/Tables/User?filter=pid=" + sPID)
+        .then(function(response) {
+            var pRow = response.data.rows[0];
+            for (var sProp in pRow) {
+                $scope[sProp] = pRow[sProp];
+            }
+        });
 });

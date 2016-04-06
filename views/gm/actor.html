@@ -2,7 +2,7 @@
 
 {% block title %}HZW.GM.User{%endblock%} 
 
-{% block head %} {% endblock %} 
+{% block head %}{% endblock %} 
 
 {% block body %}class="hold-transition skin-blue sidebar-collapse sidebar-mini"{%endblock%} 
 
@@ -27,7 +27,7 @@
         <!-- Your Page Content Here -->
         <div class="row">
             <!-- left column -->
-            <div class="col-xs-6">
+            <div class="col-xs-6" ng-app="hzwApp">
                 <!-- 账号信息 Begin -->
                 <div class="box box-info">
                     <div class="box-header with-border">
@@ -35,12 +35,12 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" ng-controller="accountCtrl">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="input_Money" class="col-sm-2 control-label">充值</label>
+                                <label class="col-sm-2 control-label">充值</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input_Money" placeholder="">
+                                    <input type="text" ng-model="money" class="form-control" placeholder="">
                                 </div>
                             </div>                                                                                                      
                         </div>
@@ -59,14 +59,14 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" ng-controller="userCtrl">
                         <div class="box-body">
                             {% for pField in Schemas_user.FormFields %} 
                             {% if loop %}<!-- {{ pField.Alias }} start -->{% endif %}
-                            <div id="group_{{ pField.Name }}" class="form-group">
-                                <label for="input_{{ pField.Name }}" class="col-sm-2 control-label">{{ pField.Alias }}</label>
+                            <div class="form-group">
+                                <label for="input_user_{{ pField.Name }}" class="col-sm-2 control-label">{{ pField.Alias }}</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input_{{ pField.Name }}" placeholder="{{ pField.Placeholder }}">
+                                    <input type="text" name="{{ pField.Name }}" ng-model="{{ pField.Name }}" class="form-control" id="input_user_{{ pField.Name }}" placeholder="{{ pField.Placeholder }}">
                                 </div>
                             </div>
                             {% if loop %}<!-- {{ pField.Alias }} end -->{% endif %} 
@@ -235,5 +235,7 @@
 {% block script %}
 <!-- AdminLTE App -->
 <script src="../plugins/AdminLTE-2.3.0-dist/js/app.min.js"></script>
-<script type="text/javascript" src="../js/gm/actor.js"></script>
+<!-- Angular 1.5.3 -->
+<script src="../plugins/angular-1.5.3.min.js"></script>
+<script src="../js/gm/actor.js"></script>
 {% endblock %}

@@ -72,7 +72,7 @@ router.get('/Tables/:table', function(req, res, next) {
 
         var sSql = stringHelper("select {1} from {0}", pTable.Table, pTable.Query_GetDBNames());
         if (sFilter && sFilter.length > 1) {
-            sSql = stringHelper("select * from ({0} where {1})", sSql, sFilter);
+            sSql = stringHelper("select * from ({0} where {1}) a", sSql, sFilter);
         }
 
         if (sSearch && sSearch.length > 1) {
