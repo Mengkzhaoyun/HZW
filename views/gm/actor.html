@@ -24,7 +24,6 @@
 
     <!-- Main content -->
     <section class="content">
-
         <!-- Your Page Content Here -->
         <div class="row">
             <!-- left column -->
@@ -63,12 +62,14 @@
                     <form class="form-horizontal">
                         <div class="box-body">
                             {% for pField in Schemas_user.FormFields %} 
-                            {% if loop %}<div class="form-group">{% endif %}
-                            <label for="input_{{ pField.Name }}" class="col-sm-2 control-label">{{ pField.Alias }}</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="input_{{ pField.Name }}" placeholder="{{ pField.Placeholder }}">
+                            {% if loop %}<!-- {{ pField.Alias }} start -->{% endif %}
+                            <div id="group_{{ pField.Name }}" class="form-group">
+                                <label for="input_{{ pField.Name }}" class="col-sm-2 control-label">{{ pField.Alias }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="input_{{ pField.Name }}" placeholder="{{ pField.Placeholder }}">
+                                </div>
                             </div>
-                            {% if loop %}</div>{% endif %} 
+                            {% if loop %}<!-- {{ pField.Alias }} end -->{% endif %} 
                             {% endfor %}                                                                                                                             
                         </div>
                         <!-- /.box-body -->
