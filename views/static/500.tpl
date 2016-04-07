@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'layout.tpl' %}
 
 {% block title %}HZW.500{% endblock %}
 

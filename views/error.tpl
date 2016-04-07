@@ -1,4 +1,4 @@
-{% extends 'layout.html' %} 
+{% extends 'layout.tpl' %} 
 
 {% block title %}{% endblock %} 
 
