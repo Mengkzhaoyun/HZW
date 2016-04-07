@@ -1,8 +1,8 @@
-{% extends 'layout.tpl' %}
+{% extends 'BaseTpl/layout-admin.tpl' %}
 
 {% block style %}
     <!-- iCheck -->
-    <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
 {%endblock%}
 
 {% block bodyclass %}hold-transition register-page{% endblock %}
@@ -59,7 +59,7 @@
 
 {% block script %}
     <!-- iCheck -->
-    <script src="../plugins/iCheck/icheck.min.js"></script>
+    <script src="plugins/iCheck/icheck.min.js"></script>
     <script>
       $(function () {
         $('input').iCheck({

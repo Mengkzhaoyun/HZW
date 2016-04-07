@@ -1,216 +1,447 @@
 {
-    "Schemas": {
+  "Schemas": {
+    "account": {
+      "Table": "s1.account",
+      "DataBase": "s1",
+      "PrimaryKey": "id",
+      "SpecialKey": "",
+      "Fields": {
+        "id": {
+          "Alias": "编号",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "ID",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "账号ID"
+        },
         "account": {
-            "Table": "`account`",
-            "DataBase": "s1",
-            "PrimaryKey": "id",
-            "SpecialKey": "",
-            "Fields": {
-                "id": {
-                    "Alias": "编号",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "ID",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "账号ID"
-                },
-                "account": {
-                    "Alias": "账号",
-                    "Domain": null,
-                    "Type": "String",
-                    "DBName": "NAME",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "账号"
-                },
-                "money": {
-                    "Alias": "充值",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "MONEY",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "充值"
-                }
-            },
-            "BootstrapTableFields": [
-                {
-                    "Name": "id",
-                    "Orderable": true,
-                    "Sortable": false
-                },
-                {
-                    "Name": "account",
-                    "Orderable": true,
-                    "Sortable": true
-                },
-                {
-                    "Name": "money",
-                    "Orderable": true,
-                    "Sortable": false
-                }
-            ],
-            "FormFields": [
-                {
-                    "Name": "money"
-                }
-            ]
+          "Alias": "账号",
+          "Domain": null,
+          "Type": "String",
+          "DBName": "NAME",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "账号"
         },
-        "user": {
-            "Table": "`t_user`",
-            "DataBase": "pirate20002",
-            "PrimaryKey": "uid|pid",
-            "SpecialKey": "",
-            "Fields": {
-                "uid": {
-                    "Alias": "主角主键",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "UID",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "主角主键"
-                },
-                "pid": {
-                    "Alias": "账号主键",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "PID",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "用户ID"
-                },
-                "username": {
-                    "Alias": "主角",
-                    "Domain": null,
-                    "Type": "String",
-                    "DBName": "UNAME",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "主角"
-                },
-                "vip": {
-                    "Alias": "VIP",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "VIP",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "VIP"
-                },
-                "belly": {
-                    "Alias": "贝利",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "BELLY_NUM",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "贝利"
-                },
-                "gold": {
-                    "Alias": "金币",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "GOLD_NUM",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "金币"
-                },
-                "prestige": {
-                    "Alias": "声望",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "PRESTIGE_NUM",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "声望"
-                },
-                "experience": {
-                    "Alias": "阅历",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "EXPERIENCE_NUM",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "阅历"
-                },
-                "execution": {
-                    "Alias": "行动力",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "CUR_EXECUTION",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "行动力"
-                }
-            },
-            "FormFields": [
-                {
-                    "Name": "username",
-                    "IsReadOnly": true,
-                    "Placeholder":"真の赵云"
-                },
-                {
-                    "Name": "vip"
-                },
-                {
-                    "Name": "belly"
-                },
-                {
-                    "Name": "gold"
-                },
-                {
-                    "Name": "prestige"
-                },
-                {
-                    "Name": "experience"
-                },
-                {
-                    "Name": "execution"
-                }
-            ]
-        },
-        "astrolabe":{
-            "Table": "`t_astrolabe_info`",
-            "DataBase": "pirate20002",
-            "PrimaryKey": "uid,id",
-            "SpecialKey": "",
-            "Fields": {
-                "uid": {
-                    "Alias": "角色ID",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "UID",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "角色ID"
-                },
-                "id":{
-                    "Alias": "编号",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "AST_ID",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "ID"
-                },                
-                "level": {
-                    "Alias": "等级",
-                    "Domain": null,
-                    "Type": "Long",
-                    "DBName": "AST_LEV",
-                    "Nullable": false,
-                    "Default": null,
-                    "Comments": "等级"
-                }
-            },
-            "FormFields": [
-                {
-                    "Name": "level"
-                }
-            ]
+        "money": {
+          "Alias": "充值",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "MONEY",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "充值"
         }
+      },
+      "BootstrapTableFields": [
+        {
+          "Name": "id",
+          "Orderable": true,
+          "Sortable": false
+        },
+        {
+          "Name": "account",
+          "Orderable": true,
+          "Sortable": true
+        },
+        {
+          "Name": "money",
+          "Orderable": true,
+          "Sortable": false
+        }
+      ],
+      "FormFields": [
+        {
+          "Name": "money"
+        }
+      ]
     },
-    "Domains": {}
+    "user": {
+      "Table": "pirate20002.t_user",
+      "DataBase": "pirate20002",
+      "PrimaryKey": "uid|pid",
+      "SpecialKey": "",
+      "Fields": {
+        "uid": {
+          "Alias": "主角主键",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "UID",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "主角主键"
+        },
+        "pid": {
+          "Alias": "账号主键",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "PID",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "用户ID"
+        },
+        "username": {
+          "Alias": "主角",
+          "Domain": null,
+          "Type": "String",
+          "DBName": "UNAME",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "主角"
+        },
+        "vip": {
+          "Alias": "VIP",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "VIP",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "VIP"
+        },
+        "belly": {
+          "Alias": "贝利",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "BELLY_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "贝利"
+        },
+        "gold": {
+          "Alias": "金币",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "GOLD_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "金币"
+        },
+        "prestige": {
+          "Alias": "声望",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "PRESTIGE_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "声望"
+        },
+        "experience": {
+          "Alias": "阅历",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "EXPERIENCE_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "阅历"
+        },
+        "execution": {
+          "Alias": "行动力",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "CUR_EXECUTION",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "行动力"
+        }
+      },
+      "FormFields": [
+        {
+          "Name": "username",
+          "IsReadOnly": true,
+          "Placeholder": "真の赵云"
+        },
+        {
+          "Name": "vip"
+        },
+        {
+          "Name": "belly"
+        },
+        {
+          "Name": "gold"
+        },
+        {
+          "Name": "prestige"
+        },
+        {
+          "Name": "experience"
+        },
+        {
+          "Name": "execution"
+        }
+      ]
+    },
+    "astrolabe_level": {
+      "Table": "pirate20002.t_astrolabe_info",
+      "DataBase": "pirate20002",
+      "PrimaryKey": "uid,id",
+      "SpecialKey": "",
+      "Fields": {
+        "uid": {
+          "Alias": "角色ID",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "UID",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "角色ID"
+        },
+        "id": {
+          "Alias": "编号",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "AST_ID",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "ID"
+        },
+        "ast_level": {
+          "Alias": "等级",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "AST_LEV",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "等级"
+        }
+      },
+      "FormFields": [
+        {
+          "Name": "ast_level"
+        }
+      ]
+    },
+    "astrolabe_stone": {
+      "Table": "pirate20002.t_astrolabe_stone",
+      "DataBase": "pirate20002",
+      "PrimaryKey": "uid",
+      "SpecialKey": "",
+      "Fields": {
+        "uid": {
+          "Alias": "角色ID",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "UID",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "角色ID"
+        },
+        "ast_stone": {
+          "Alias": "星灵石",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "STONE_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "星灵石"
+        }
+      },
+      "FormFields": [
+        {
+          "Name": "ast_level"
+        }
+      ]
+    },
+    "honourshop": {
+      "Table": "pirate20002.t_honourshop",
+      "DataBase": "pirate20002",
+      "PrimaryKey": "uid",
+      "SpecialKey": "",
+      "Fields": {
+        "uid": {
+          "Alias": "角色ID",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "UID",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "角色ID"
+        },
+        "honour": {
+          "Alias": "荣誉",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "HONOUR_POINT",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "荣誉"
+        }
+      },
+      "FormFields": [
+        {
+          "Name": "ast_level"
+        }
+      ]
+    },
+    "accountinfo": {
+      "Table": "(select a.id,a.name,a.money,b.uid,b.cur_execution,b.vip,b.belly_num,b.gold_num,prestige_num,b.experience_num,c.ast_lev,d.stone_num,e.honour_point from s1.account a left JOIN (select a.uid,a.cur_execution,a.vip,a.belly_num,a.gold_num,prestige_num,a.experience_num,a.pid from pirate20002.t_user a) b on a.id = b.pid left join (select a.uid,a.ast_id,a.ast_lev from pirate20002.t_astrolabe_info a where a.ast_id =1 ) c on b.uid = c.uid left join (select a.uid,a.stone_num from pirate20002.t_astrolabe_stone a) d on b.uid = d.uid left join (select a.uid,a.honour_point from pirate20002.t_honourshop a) e on b.uid = e.uid)",
+      "DataBase": "s1",
+      "PrimaryKey": "id",
+      "SpecialKey": "",
+      "Fields": {
+        "id": {
+          "Alias": "编号",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "ID",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "账号ID"
+        },
+        "account": {
+          "Alias": "账号",
+          "Domain": null,
+          "Type": "String",
+          "DBName": "NAME",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "账号"
+        },
+        "money": {
+          "Alias": "充值",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "MONEY",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "充值"
+        },
+        "uid": {
+          "Alias": "主角主键",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "UID",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "主角主键"
+        },
+        "vip": {
+          "Alias": "VIP",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "VIP",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "VIP"
+        },
+        "belly": {
+          "Alias": "贝利",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "BELLY_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "贝利"
+        },
+        "gold": {
+          "Alias": "金币",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "GOLD_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "金币"
+        },
+        "prestige": {
+          "Alias": "声望",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "PRESTIGE_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "声望"
+        },
+        "experience": {
+          "Alias": "阅历",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "EXPERIENCE_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "阅历"
+        },
+        "execution": {
+          "Alias": "行动力",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "CUR_EXECUTION",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "行动力"
+        },
+        "ast_level": {
+          "Alias": "星盘等级",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "AST_LEV",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "星盘等级"
+        },
+        "ast_stone": {
+          "Alias": "星灵石",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "STONE_NUM",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "星灵石"
+        },
+        "honour": {
+          "Alias": "荣誉",
+          "Domain": null,
+          "Type": "Long",
+          "DBName": "HONOUR_POINT",
+          "Nullable": false,
+          "Default": null,
+          "Comments": "荣誉"
+        }
+      },
+      "FormFields": [
+        {
+          "Name": "account",
+          "IsLeft": true,
+          "IsReadOnly": true
+        },
+        {
+          "Name": "money",
+          "IsLeft": true
+        },
+        {
+          "Name": "vip",
+          "IsLeft": true
+        },
+        {
+          "Name": "belly",
+          "IsLeft": true
+        },
+        {
+          "Name": "gold",
+          "IsLeft": true
+        },
+        {
+          "Name": "prestige",
+          "IsLeft": true
+        },
+        {
+          "Name": "experience",
+          "IsLeft": true
+        },
+        {
+          "Name": "execution",
+          "IsLeft": true
+        },
+        {
+          "Name": "ast_level"
+        },
+        {
+          "Name": "ast_stone"
+        },
+        {
+          "Name": "honour"
+        }
+      ]
+    }
+  },
+  "Domains": {}
 }

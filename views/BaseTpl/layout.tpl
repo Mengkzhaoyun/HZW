@@ -11,25 +11,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="../plugins/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/bootstrap-3.3.5-dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../plugins/font-awesome-4.5.0-dist/css/font-awesome.min.css">
+  <link rel="stylesheet" href="plugins/font-awesome-4.5.0-dist/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../plugins/ionicons-2.0.1-dist/css/ionicons.min.css">
+  <link rel="stylesheet" href="plugins/ionicons-2.0.1-dist/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../plugins/AdminLTE-2.3.0-dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="plugins/AdminLTE-2.3.0-dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
   -->
-  <link rel="stylesheet" href="../plugins/AdminLTE-2.3.0-dist/css/skins/skin-blue.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="plugins/AdminLTE-2.3.0-dist/css/skins/skin-blue.min.css">
   {% block head %}
   {% endblock %}
 </head>
@@ -73,7 +66,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="../plugins/AdminLTE-2.3.0-dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="plugins/AdminLTE-2.3.0-dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -157,14 +150,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="../plugins/AdminLTE-2.3.0-dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="plugins/AdminLTE-2.3.0-dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">{% block User.Name %}{{User['Name']}}{% endblock %}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="../plugins/AdminLTE-2.3.0-dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="plugins/AdminLTE-2.3.0-dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   {% block User.Name %}{{User['Name']}}{% endblock %} - Web Developer
@@ -214,7 +207,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../plugins/AdminLTE-2.3.0-dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="plugins/AdminLTE-2.3.0-dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{% block User.Name %}{{User['Name']}}{% endblock %}</p>
@@ -348,9 +341,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 2.2.0 -->
-<script src="../plugins/jQuery-1.11.3.min.js"></script>
+<script src="plugins/jQuery-1.11.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="../plugins/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<script src="plugins/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 {% block script %}
 {% endblock %}
 </body>

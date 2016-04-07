@@ -32,7 +32,7 @@ $(function() {
 
 function table_formatter_account(value, row, index) {
     return [
-        '<a class="link" title="" href="' + 'actor.html?Id=' + row.id + '">',
+        '<a class="link" title="" href="' + 'player.html?Id=' + row.id + '">',
         row.account,
         '</a>'
     ].join('');

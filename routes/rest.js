@@ -70,7 +70,7 @@ router.get('/Tables/:table', function(req, res, next) {
             delete sOffset;
         }
 
-        var sSql = stringHelper("select {1} from {0}", pTable.Table, pTable.Query_GetDBNames());
+        var sSql = stringHelper("select {1} from {0} a", pTable.Table, pTable.Query_GetDBNames());
         if (sFilter && sFilter.length > 1) {
             sSql = stringHelper("select * from ({0} where {1}) a", sSql, sFilter);
         }
@@ -123,6 +123,53 @@ router.get('/Tables/:table', function(req, res, next) {
             }
             sSql = stringHelper("{0} limit {1}", sSql, pLimitArray.join(","));
         }
+
+        var pResult = {};
+        var pConn = mysql.createConnection({
+            host: GConn.Server,
+            user: GConn.User,
+            password: GConn.Password,
+            database: pTable.DataBase
+        });
+        pConn.connect();
+        pConn.query(sTotalSql, function(err, rows, fields) {
+            if (err) {
+                pResult["total"] = 0;
+                pResult["status"] = "500 Server Internal Error!";
+            }
+            else {
+                pResult["total"] = rows[0]["count(*)"];
+            }
+
+        });
+        pConn.query(sSql, function(err, rows, fields) {
+            if (err) {
+                pResult["rows"] = [];
+                pResult["status"] = "500 Server Internal Error!";
+                res.status(500).json(pResult);
+            }
+            else {
+                var pResult_Rows = [];
+                for (var i = 0; i < rows.length; i++) {
+                    var pRow = rows[i];
+                    pResult_Rows.push(pTable.Query_GetDBValues(pRow));
+                }
+                pResult["rows"] = pResult_Rows;
+                res.json(pResult);
+            }
+        });
+        pConn.end();
+        return;
+    }
+
+    res.json({ "STATUS": "404 NOT FOUND" });
+});
+
+/* Update Table */
+router.put('/Tables/:table', function(req, res, next) {
+    var sTable = req.params.table;
+    if (GTables && GTables.GetTable(sTable)) {
+        var pTable = GTables.GetTable(sTable);
 
         var pResult = {};
         var pConn = mysql.createConnection({

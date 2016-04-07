@@ -1,4 +1,4 @@
-{% extends 'layout.tpl' %}
+{% extends 'BaseTpl/layout-admin.tpl' %}
 
 {% block style %}
 
@@ -18,7 +18,7 @@
       <div class="lockscreen-item">
         <!-- lockscreen image -->
         <div class="lockscreen-image">
-          <img src="../plugins/AdminLTE-2.3.0-dist/img/user1-128x128.jpg" alt="User Image">
+          <img src="plugins/AdminLTE-2.3.0-dist/img/user1-128x128.jpg" alt="User Image">
         </div>
         <!-- /.lockscreen-image -->
 
