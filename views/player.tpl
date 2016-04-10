@@ -56,6 +56,9 @@
                         </div>
                         <!-- /.box-footer -->
                     </form>
+                    <div class="overlay" ng-show="hzw_left_busy">
+                      <i class="fa fa-refresh fa-spin"></i>
+                    </div>                    
                 </div>
                 <!-- 角色信息 End -->
             </div>
@@ -76,9 +79,9 @@
                             {% if !pField.IsLeft %}
                             {% if loop %}<!-- {{ pField.Alias }} start -->{% endif %}
                             <div class="form-group">
-                                <label for="input_user_{{ pField.Name }}" class="col-sm-2 control-label">{{ pField.Alias }}</label>
+                                <label for="input_hzw_{{ pField.Name }}" class="col-sm-2 control-label">{{ pField.Alias }}</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="hzw_{{ pField.Name }}" ng-model="{{ pField.Name }}" class="form-control" id="input_user_{{ pField.Name }}" placeholder="{{ pField.Placeholder }}">
+                                    <input type="text" name="{{ pField.Name }}" ng-model="{{ pField.Name }}" class="form-control" id="input_hzw_{{ pField.Name }}" placeholder="{{ pField.Placeholder }}">
                                 </div>
                             </div>
                             {% endif %}
@@ -91,6 +94,9 @@
                         </div>
                         <!-- /.box-footer -->
                     </form>
+                    <div class="overlay" ng-show="hzw_right_busy">
+                      <i class="fa fa-refresh fa-spin"></i>
+                    </div>
                 </div>
             </div>
             <!--/.col (right) -->

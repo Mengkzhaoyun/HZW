@@ -3,8 +3,8 @@ var router = express.Router();
 var stringHelper = require('stringformat');
 var mysql = require('mysql');
 
-var GTables = require('tables.js');
-var GConn = require('conn.js');
+var GTables = require('./tables.js');
+var GConn = require('./conn.js');
 
 /* Query Table */
 router.get('/Tables/:table', function(req, res, next) {
@@ -80,13 +80,7 @@ router.get('/Tables/:table', function(req, res, next) {
     }
 
     var pResult = {};
-    var pConn = mysql.createConnection({
-      host: GConn.Server,
-      user: GConn.User,
-      password: GConn.Password,
-      database: pTable.DataBase
-    });
-    pConn.connect();
+    var pConn = GConn.createConnection(pTable.DataBase);
     pConn.query(sTotalSql, function(err, rows, fields) {
       if (err) {
         pResult["total"] = 0;
@@ -128,52 +122,37 @@ router.put('/Tables/:table', function(req, res, next) {
     var pInputObjs = req.body;
     var pSqlList = [];
     for (var i = 0; i < pInputObjs.length; i++) {
-        var pInputJO = pInputObjs[i];
-        var sPrimary = pTable.Update_GetDBValues_Primary(pInputJO);
-        var sDBSetValues = pTable.Update_GetDBValues_Set(pInputJO);
-        pSqlList.push(stringHelper("update {0} set {1} where {2}", pTable.Table, sDBSetValues,sPrimary));
+      var pInputJO = pInputObjs[i];
+      var sPrimary = pTable.Update_GetDBValues_Primary(pInputJO);
+      var sDBSetValues = pTable.Update_GetDBValues_Set(pInputJO);
+      pSqlList.push(stringHelper("update {0} set {1} where {2}", pTable.Table, sDBSetValues, sPrimary));
     }
-    
-
     var pResult = {};
-    var pConn = mysql.createConnection({
-      host: GConn.Server,
-      user: GConn.User,
-      password: GConn.Password,
-      database: pTable.DataBase
-    });
-    pConn.connect();
-    pConn.query(sTotalSql, function(err, rows, fields) {
-      if (err) {
-        pResult["total"] = 0;
-        pResult["status"] = "500 Server Internal Error!";
-      }
-      else {
-        pResult["total"] = rows[0]["count(*)"];
-      }
+    pResult.Index = 0;
+    pResult.Count = pSqlList.length;
+    pResult.ErrorRows = [];
+    pResult.AffectedRows = 0;
+    var pConn = GConn.createConnection(pTable.DataBase);
+    for (var i = 0; i < pSqlList.length; i++) {
+      var sSql = pSqlList[i];
+      pConn.query(sSql, function(err, results) {
 
-    });
-    pConn.query(sSql, function(err, rows, fields) {
-      if (err) {
-        pResult["rows"] = [];
-        pResult["status"] = "500 Server Internal Error!";
-        res.status(500).json(pResult);
-      }
-      else {
-        var pResult_Rows = [];
-        for (var i = 0; i < rows.length; i++) {
-          var pRow = rows[i];
-          pResult_Rows.push(pTable.Query_GetDBValues(pRow));
+        if (err) {
+          pResult.ErrorRows.push(pResult.Index);
         }
-        pResult["rows"] = pResult_Rows;
-        res.json(pResult);
-      }
-    });
+        else {
+          pResult.AffectedRows += results.affectedRows;
+        }
+        pResult.Index++;
+        if (pResult.Index == pResult.Count) {
+          res.json(pResult);
+        }
+      });
+    }
     pConn.end();
     return;
   }
-
-  res.json({ "STATUS": "404 NOT FOUND" });
+  res.json({ "STATUS": "500 NOT FOUND" });
 });
 
 /* Query Schema */
@@ -184,6 +163,24 @@ router.get('/Schemas/:table', function(req, res, next) {
     res.json(pTable);
     return;
   }
+  res.status(500).json({ "STATUS": "404 NOT FOUND" });
+});
+
+/* Query Conn */
+router.get('/Conn', function(req, res, next) {
+  var pHZW = GConn.GetGConn().HZW;
+  res.json(pHZW);
+});
+
+/* Query Conn */
+router.put('/Conn', function(req, res, next) {
+  var pHZW = GConn.GetGConn().HZW;
+  var pConnInfo = { Rows: [] };
+  for (var sProp in pHZW) {
+    pConnInfo.Row.push({ Name: sProp, Alias: sProp, Value: pHZW[sProp] });
+  }
+  pData.ConnInfo = pConnInfo;
+
   res.status(500).json({ "STATUS": "404 NOT FOUND" });
 });
 

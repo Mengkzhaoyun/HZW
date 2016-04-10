@@ -9,6 +9,9 @@ var swig = require('swig');
 var pIndex = require('./routes/index');
 var pREST = require('./routes/rest');
 
+var GTables = require('./routes/tables.js');
+var GConn = require('./routes/conn.js');
+
 var app = express();
 
 // view engine setup
