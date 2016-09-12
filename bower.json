@@ -1,0 +1,13 @@
+{
+    "name": "HZW",
+    "version": "1.0.0",
+    "dependencies": {
+        "admin-lte": "*",
+        "bootstrap": "*",
+        "bootstrap-table": "*",
+        "fastclick": "*",
+        "font-awesome": "*",
+        "iCheck": "*",
+        "ionicons": "*"
+    }
+}
